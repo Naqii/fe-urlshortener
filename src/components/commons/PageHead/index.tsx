@@ -1,3 +1,3 @@
-import PageHead from "./PageHead"; 
+import PageHead from './PageHead';
 
 export default PageHead;
