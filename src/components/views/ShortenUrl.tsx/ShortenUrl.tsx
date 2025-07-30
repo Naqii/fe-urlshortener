@@ -16,8 +16,8 @@ const ShortenUrl = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:gap-20">
-      <div className="flex w-1/3 flex-col items-center justify-center gap-10">
-        <Image src="/general/dummy.png" alt="logo" width={180} height={180} />
+      <div className="flex w-fit flex-col items-center justify-center gap-10">
+        <Image src="/image/general/asset2.png" alt="logo" width={256} height={256} />
       </div>
       <Card>
         <CardBody className="h-full w-full p-8">
