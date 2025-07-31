@@ -1,5 +1,5 @@
 const endpoint = {
-  SHORTEN: '/url',
+  SHORTEN: '/',
 };
 
 export default endpoint;
