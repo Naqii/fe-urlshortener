@@ -7,9 +7,9 @@ import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
 const shortenSchema = Yup.object().shape({
-  originalUrl: Yup.string().required('Please input your Url'),
+  originalUrl: Yup.string().required('Please input your Url').url('Your Url is invalid'),
   customAlias: Yup.string()
-    .matches(/^[a-zA-Z0-9 _-]+$/, 'Custom alias must only contain letters and numbers')
+    .matches(/^[a-zA-Z0-9 _-]+$/, 'Cant use symbol @#*&^..etc only _ -')
     .optional(),
 });
 
@@ -43,7 +43,7 @@ const useShortenUrl = ({ setShortenedUrl }: { setShortenedUrl: (url: string) => 
       });
     },
     onSuccess: data => {
-      router.push("/shorten")
+      router.push('/shorten');
       const newUrl = data?.data?.data?.newUrl;
       // console.log("API response", data.data);
       // console.log('newUrl:', newUrl);

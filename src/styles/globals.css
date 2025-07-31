@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #DCD7C9;
-  --foreground: #2C3639;
+  --background: #dcd7c9;
+  --foreground: #2c3639;
 }
 
 @theme inline {
@@ -18,7 +18,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #2C3639;
+    --background: #2c3639;
     /* defaultnya harus cerah/putih */
     --foreground: #000000;
   }

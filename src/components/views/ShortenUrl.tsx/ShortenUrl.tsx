@@ -9,7 +9,7 @@ import { downloadQR } from '@/libs/downloadQR';
 
 const ShortenUrl = () => {
   const [shortenedUrl, setShortenedUrl] = useState('');
-  const { control, handleSubmit, handleSubmitUrl, isPendingShorten } = useShortenUrl({
+  const { control, handleSubmit, handleSubmitUrl, isPendingShorten, errors } = useShortenUrl({
     setShortenedUrl,
   });
   const qrRef = useRef<HTMLDivElement>(null);
@@ -17,12 +17,7 @@ const ShortenUrl = () => {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-10 lg:flex-row lg:gap-20">
       <div className="flex flex-col items-center justify-center gap-10">
-        <Image 
-          src="/image/general/asset2.png" 
-          alt="logo"
-          width={256} 
-          height={254}
-          priority />
+        <Image src="/image/general/asset2.png" alt="logo" width={256} height={254} priority />
       </div>
       <Card>
         <CardBody className="h-full w-full p-8">
@@ -32,14 +27,29 @@ const ShortenUrl = () => {
               name="originalUrl"
               control={control}
               render={({ field }) => (
-                <Input {...field} label="URL" type="text" variant="bordered" autoComplete="off" />
+                <Input 
+                  {...field} 
+                  label="URL" 
+                  type="text" 
+                  variant="bordered" 
+                  autoComplete="off" 
+                  isInvalid={errors.originalUrl !== undefined}
+                  errorMessage={errors.originalUrl?.message} />
               )}
             />
             <Controller
               name="customAlias"
               control={control}
               render={({ field }) => (
-                <Input {...field} label="Alias" type="text" variant="bordered" autoComplete="off" />
+                <Input 
+                  {...field} 
+                  label="Alias" 
+                  type="text" 
+                  variant="bordered" 
+                  autoComplete="off" 
+                  isInvalid={!!errors.customAlias}
+                  errorMessage={errors.customAlias?.message}
+                  />
               )}
             />
             <Button color="primary" className="focus:outline-none" type="submit" size="lg">

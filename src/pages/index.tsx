@@ -1,13 +1,19 @@
 import PageHead from '@/components/commons/PageHead';
 import { Button } from '@heroui/react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div
-      className={`grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20`}
-    >
+    <div className="flex w-full flex-col items-center justify-center gap-10">
       <PageHead />
-      <Button color="primary">Button</Button>
+      <div className="flex flex-col items-center justify-center gap-10">
+        <Image src="/image/general/asset3.png" alt="logo" width={256} height={254} priority />
+        <p className="text-xl">We&apos;re Under Construction</p>
+      </div>
+      <Link href="/shorten">
+        <Button color="primary">Go to Shorten Page</Button>
+      </Link>
     </div>
   );
 }
