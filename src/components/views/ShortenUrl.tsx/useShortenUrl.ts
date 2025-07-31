@@ -2,7 +2,7 @@ import shortenUrlServices from '@/services/shorten';
 import { IShorten } from '@/types/shorten';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
@@ -14,7 +14,7 @@ const shortenSchema = Yup.object().shape({
 });
 
 const useShortenUrl = ({ setShortenedUrl }: { setShortenedUrl: (url: string) => void }) => {
-  // const router = useRouter();
+  const router = useRouter();
   const {
     control,
     handleSubmit,
@@ -43,7 +43,7 @@ const useShortenUrl = ({ setShortenedUrl }: { setShortenedUrl: (url: string) => 
       });
     },
     onSuccess: data => {
-      // router.push("/shorten")
+      router.push("/shorten")
       const newUrl = data?.data?.data?.newUrl;
       // console.log("API response", data.data);
       // console.log('newUrl:', newUrl);
