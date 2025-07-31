@@ -52,6 +52,9 @@ const ShortenUrl = () => {
                   />
               )}
             />
+            {errors.root?.message && (
+              <p className="text-red-500 text-xs">Alias alredy taken</p>
+            )}
             <Button color="primary" className="focus:outline-none" type="submit" size="lg">
               {isPendingShorten ? <Spinner color="white" size="md" /> : 'Generate'}
             </Button>

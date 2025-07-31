@@ -30,8 +30,12 @@ const useShortenUrl = ({ setShortenedUrl }: { setShortenedUrl: (url: string) => 
   });
 
   const shortenServices = async (payload: IShorten) => {
-    const result = await shortenUrlServices.shorten(payload);
-    return result;
+    try {
+      const result = await shortenUrlServices.shorten(payload);
+      return result;
+    } catch (error) {
+      throw error; // tetap dilempar ke react-query
+  }
   };
 
   //dari react-quary untuk mutasi/perubahan data disisi backend
